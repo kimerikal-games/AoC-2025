@@ -74,7 +74,7 @@ def update_readme(readme_path: Path, owner: str, repo: str, day: int) -> None:
 
     old = f'<td align="center">{day}</td>'
 
-    new = f'<td align="center"><a href="https://github.com/{owner}/{repo}/tree/master/day/{day:02d}/program.py">{day}</a></td>'
+    new = f'<td align="center"><a href="https://github.com/{owner}/{repo}/blob/master/day/{day:02d}/program.py">{day}</a></td>'
 
     if old not in readme:
         raise RuntimeError(f"Could not find day {day} cell in README.md")

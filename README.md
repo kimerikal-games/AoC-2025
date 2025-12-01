@@ -23,7 +23,7 @@ My solutions for [Advent of Code 2025](https://adventofcode.com/2025).
     <tbody>
         <tr>
             <td align="center"></td>
-            <td align="center"><a href="https://github.com/kimerikal-games/AoC-2025/tree/main/day/01/program.py">1</a></td>
+            <td align="center"><a href="https://github.com/kimerikal-games/AoC-2025/blob/master/day/01/program.py">1</a></td>
             <td align="center">2</td>
             <td align="center">3</td>
             <td align="center">4</td>
