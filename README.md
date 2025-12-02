@@ -24,7 +24,7 @@ My solutions for [Advent of Code 2025](https://adventofcode.com/2025).
         <tr>
             <td align="center"></td>
             <td align="center"><a href="https://github.com/kimerikal-games/AoC-2025/blob/master/day/01/program.py">1</a></td>
-            <td align="center">2</td>
+            <td align="center"><a href="https://github.com/kimerikal-games/AoC-2025/blob/master/day/02/program.py">2</a></td>
             <td align="center">3</td>
             <td align="center">4</td>
             <td align="center">5</td>
@@ -81,7 +81,8 @@ My solutions for [Advent of Code 2025](https://adventofcode.com/2025).
 
 |   Day |   Lines |   Words |   Bytes |   Python 3.14 Time [ms] |   Python 3.14 Memory [KB] |   PyPy 3.11 Time [ms] |   PyPy 3.11 Memory [KB] |
 |------:|--------:|--------:|--------:|------------------------:|--------------------------:|----------------------:|------------------------:|
-|     1 |      66 |     160 |    1525 |                       8 |                     22244 |                    18 |                 55391.2 |
+|     1 |      66 |     160 |    1525 |                      10 |                   22014.4 |                    28 |                 63033.6 |
+|     2 |      94 |     231 |    2124 |                     304 |                   22032.8 |                    80 |                 64008   |
 <!-- endregion measurements -->
 
 ## Structure
