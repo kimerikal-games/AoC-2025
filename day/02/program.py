@@ -24,18 +24,17 @@ def part1(id_ranges: list[tuple[int, int]]) -> int:
     total = 0
 
     for start, end in id_ranges:
-        start_length = digit_length(start)
+        start_len = count_digits(start)
+        candidate_start_len = (start_len + 1) // 2
+        candidate = 10 ** (candidate_start_len - 1)
 
-        candidate_start_length = (start_length + 1) // 2
-        candidate_start = 10 ** (candidate_start_length - 1)
-
-        for candidate in count(candidate_start):
-            double_candidate = double(candidate)
-            if double_candidate < start:
-                continue
-            if double_candidate > end:
+        for candidate in count(candidate):
+            doubled = duplicate(candidate, 2)
+            if doubled > end:
                 break
-            total += double_candidate
+            if doubled < start:
+                continue
+            total += doubled
 
     return total
 
@@ -44,50 +43,39 @@ def part2(id_ranges: list[tuple[int, int]]) -> int:
     total = 0
 
     for start, end in id_ranges:
-        visited: set[int] = set()
+        visited = set()
 
         for candidate in count(1):
-            if double(candidate) > end:
+            if duplicate(candidate, 2) > end:
                 break
 
-            for repetition in count(1):
-                repeat_candidate = repeat(candidate, repetition)
+            candidate_str = str(candidate)
+            candidate_len = len(candidate_str)
 
-                if repeat_candidate < start:
+            max_repetition = len(str(end)) // candidate_len
+            if max_repetition == 0:
+                continue
+            min_repetition = -(-count_digits(start) // candidate_len)
+
+            for repetition in range(min_repetition, max_repetition + 1):
+                repeated = duplicate(candidate, repetition)
+                if repeated < start:
                     continue
-                if repeat_candidate > end:
+                if repeated > end:
                     break
-
-                if repeat_candidate in visited:
-                    continue
-                visited.add(repeat_candidate)
-
-                total += repeat_candidate
+                if repeated not in visited:
+                    visited.add(repeated)
+                    total += repeated
 
     return total
 
 
-def digit_length(n: int) -> int:
-    if n == 0:
-        return 1
-    length = 0
-    while n > 0:
-        n //= 10
-        length += 1
-    return length
+def count_digits(n: int) -> int:
+    return len(str(n))
 
 
-def double(n: int) -> int:
-    length = digit_length(n)
-    return n * (10**length) + n
-
-
-def repeat(n: int, k: int) -> int:
-    length = digit_length(n)
-    result = 0
-    for _ in range(k):
-        result = result * (10**length) + n
-    return result
+def duplicate(n: int, k: int) -> int:
+    return int(str(n) * k)
 
 
 if __name__ == "__main__":
