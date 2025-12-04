@@ -25,8 +25,8 @@ My solutions for [Advent of Code 2025](https://adventofcode.com/2025).
             <td align="center"></td>
             <td align="center"><a href="https://github.com/kimerikal-games/AoC-2025/blob/master/day/01/program.py">1</a></td>
             <td align="center"><a href="https://github.com/kimerikal-games/AoC-2025/blob/master/day/02/program.py">2</a></td>
-            <td align="center">3</td>
-            <td align="center">4</td>
+            <td align="center"><a href="https://github.com/kimerikal-games/AoC-2025/blob/master/day/03/program.py">3</a></td>
+            <td align="center"><a href="https://github.com/kimerikal-games/AoC-2025/blob/master/day/04/program.py">4</a></td>
             <td align="center">5</td>
             <td align="center">6</td>
         </tr>
@@ -81,8 +81,10 @@ My solutions for [Advent of Code 2025](https://adventofcode.com/2025).
 
 |   Day |   Lines |   Words |   Bytes |   Python 3.14 Time [ms] |   Python 3.14 Memory [KB] |   PyPy 3.11 Time [ms] |   PyPy 3.11 Memory [KB] |
 |------:|--------:|--------:|--------:|------------------------:|--------------------------:|----------------------:|------------------------:|
-|     1 |      66 |     160 |    1525 |                      10 |                   21990.4 |                    28 |                 63058.4 |
-|     2 |      82 |     208 |    2032 |                     156 |                   22027.2 |                    56 |                 63147.2 |
+|     1 |      66 |     160 |    1525 |                      10 |                   21970.4 |                    32 |                 62996.8 |
+|     2 |      82 |     208 |    2032 |                     164 |                   21969.6 |                    58 |                 63164.8 |
+|     3 |      67 |     157 |    1406 |                      46 |                   21986.4 |                    32 |                 63477.6 |
+|     4 |      75 |     243 |    1927 |                     256 |                   22030.4 |                    90 |                 63676   |
 <!-- endregion measurements -->
 
 ## Structure
