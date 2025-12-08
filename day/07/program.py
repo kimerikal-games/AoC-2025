@@ -62,12 +62,9 @@ def parts(rows: int, cols: int, grid: Grid) -> tuple[int, int]:
     return part1_answer, part2_answer
 
 
-def part1(rows: int, cols: int, grid: Grid) -> int:
-    return parts(rows, cols, grid)[0]
-
-
-def part2(rows: int, cols: int, grid: Grid) -> int:
-    return parts(rows, cols, grid)[1]
+# Only for testing purposes
+def part1(rows: int, cols: int, grid: Grid) -> int: return parts(rows, cols, grid)[0]
+def part2(rows: int, cols: int, grid: Grid) -> int: return parts(rows, cols, grid)[1]
 
 
 if __name__ == "__main__":
