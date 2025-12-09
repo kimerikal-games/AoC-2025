@@ -44,8 +44,11 @@ def part1(points: list[Point]) -> int:
 
 
 def part2(points: list[Point]) -> int:
-    xmap = {x: i for i, x in enumerate(sorted({p[0] for p in points}))}
-    ymap = {y: i for i, y in enumerate(sorted({p[1] for p in points}))}
+    xunique = sorted({p[0] for p in points} | {-1, sys.maxsize})
+    yunique = sorted({p[1] for p in points} | {-1, sys.maxsize})
+
+    xmap = {x: i for i, x in enumerate(xunique)}
+    ymap = {y: i for i, y in enumerate(yunique)}
 
     rows, cols = len(xmap), len(ymap)
     grid = [[0] * cols for _ in range(rows)]
