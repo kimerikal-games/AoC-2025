@@ -33,7 +33,7 @@ My solutions for [Advent of Code 2025](https://adventofcode.com/2025).
         <tr>
             <td align="center"><a href="https://github.com/kimerikal-games/AoC-2025/blob/master/day/07/program.py">7</a></td>
             <td align="center"><a href="https://github.com/kimerikal-games/AoC-2025/blob/master/day/08/program.py">8</a></td>
-            <td align="center">9</td>
+            <td align="center"><a href="https://github.com/kimerikal-games/AoC-2025/blob/master/day/09/program.py">9</a></td>
             <td align="center">10</td>
             <td align="center">11</td>
             <td align="center">12</td>
@@ -81,14 +81,15 @@ My solutions for [Advent of Code 2025](https://adventofcode.com/2025).
 
 |   Day |   Lines |   Words |   Bytes |   Python 3.14 Time [ms] |   Python 3.14 Memory [KB] |   PyPy 3.11 Time [ms] |   PyPy 3.11 Memory [KB] |
 |------:|--------:|--------:|--------:|------------------------:|--------------------------:|----------------------:|------------------------:|
-|     1 |      66 |     160 |    1525 |                      10 |                   22169.6 |                    30 |                 63016.8 |
-|     2 |      82 |     209 |    2042 |                     160 |                   22207.2 |                    54 |                 63182.4 |
-|     3 |      68 |     160 |    1417 |                      40 |                   22136   |                    30 |                 63395.2 |
-|     4 |      80 |     239 |    1979 |                     244 |                   22202.4 |                    84 |                 63855.2 |
-|     5 |      49 |     126 |    1105 |                      20 |                   22195.2 |                    46 |                 65315.2 |
-|     6 |      71 |     186 |    1570 |                      10 |                   21980   |                    44 |                 64495.2 |
-|     7 |      67 |     171 |    1641 |                      10 |                   22098.4 |                    26 |                 63256.8 |
-|     8 |     104 |     298 |    2487 |                     358 |                   94224   |                   230 |                126546   |
+|     1 |      66 |     160 |    1525 |                      10 |                   22258.4 |                    28 |                 62992   |
+|     2 |      82 |     209 |    2042 |                     154 |                   22144   |                    50 |                 63146.4 |
+|     3 |      68 |     160 |    1417 |                      46 |                   22073.6 |                    32 |                 63399.2 |
+|     4 |      80 |     239 |    1979 |                     232 |                   22090.4 |                    88 |                 63878.4 |
+|     5 |      49 |     126 |    1105 |                      16 |                   22117.6 |                    42 |                 65315.2 |
+|     6 |      71 |     186 |    1570 |                      10 |                   22155.2 |                    42 |                 64477.6 |
+|     7 |      67 |     171 |    1641 |                       8 |                   22004   |                    28 |                 63255.2 |
+|     8 |     104 |     298 |    2487 |                     346 |                   94103.2 |                   228 |                126577   |
+|     9 |     107 |     389 |    2705 |                     250 |                   22053.6 |                   158 |                 68152   |
 <!-- endregion measurements -->
 
 ## Structure
