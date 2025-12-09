@@ -109,7 +109,7 @@ My solutions for [Advent of Code 2025](https://adventofcode.com/2025).
 │   │   ├── out.txt     # Puzzle answer
 │   │   └── program.py  # Solution code
 │   ├── ...
-│   └── 25
+│   └── 12
 │       ├── in.txt
 │       ├── out.txt
 │       └── program.py
