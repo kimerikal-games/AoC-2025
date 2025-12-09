@@ -43,7 +43,7 @@ def part2(id_ranges: list[tuple[int, int]]) -> int:
     total = 0
 
     for start, end in id_ranges:
-        visited = set()
+        visited: set[int] = set()
 
         for candidate in count(1):
             if duplicate(candidate, 2) > end:

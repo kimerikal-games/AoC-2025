@@ -4,12 +4,18 @@ Author: kimerikal <kimerikal.games@gmail.com>
 """
 
 import sys
+from typing import cast
+
+Interval = tuple[int, int]
 
 
 def main() -> int:
     data1, data2 = sys.stdin.read().strip().split("\n\n")
-    intervals: list[tuple[int, int]] = [tuple(map(int, line.split("-"))) for line in data1.splitlines()]  # type: ignore
-    ingredients: list[int] = list(map(int, data2.splitlines()))
+    intervals = [
+        cast(Interval, tuple(map(int, line.split("-"))))
+        for line in data1.splitlines()
+    ]
+    ingredients = list(map(int, data2.splitlines()))
 
     print("Part 1:", part1(intervals, ingredients))
     print("Part 2:", part2(intervals, ingredients))
@@ -17,11 +23,14 @@ def main() -> int:
     return 0
 
 
-def part1(intervals: list[tuple[int, int]], ingredients: list[int]) -> int:
-    return sum(any(start <= ingredient <= end for start, end in intervals) for ingredient in ingredients)
+def part1(intervals: list[Interval], ingredients: list[int]) -> int:
+    return sum(
+        any(start <= ingredient <= end for start, end in intervals)
+        for ingredient in ingredients
+    )
 
 
-def part2(intervals: list[tuple[int, int]], ingredients: list[int]) -> int:
+def part2(intervals: list[Interval], ingredients: list[int]) -> int:
     intervals.sort()
 
     total_length = 0

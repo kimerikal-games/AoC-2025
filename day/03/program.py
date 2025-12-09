@@ -5,6 +5,7 @@ Author: kimerikal <kimerikal.games@gmail.com>
 
 import sys
 
+TEN = 10
 PART2_RESULT_LENGTH = 12
 
 
@@ -26,7 +27,7 @@ def part1(banks: list[list[int]]) -> int:
 
         for i in range(n):
             for j in range(i + 1, n):
-                joltage = bank[i] * 10 + bank[j]
+                joltage = bank[i] * TEN + bank[j]
                 if joltage > max_joltage:
                     max_joltage = joltage
 
@@ -56,7 +57,7 @@ def part2(banks: list[list[int]]) -> int:
 
         joltage = 0
         for digit in reversed(result):
-            joltage = joltage * 10 + digit
+            joltage = joltage * TEN + digit
 
         total_joltage += joltage
 

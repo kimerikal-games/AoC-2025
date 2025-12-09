@@ -3,7 +3,9 @@ Advent of Code 2025 - Day 8: Playground
 Author: kimerikal <kimerikal.games@gmail.com>
 """
 
+import heapq
 import sys
+from typing import cast
 
 Point = tuple[int, int, int]
 X, Y, Z = 0, 1, 2
@@ -38,7 +40,10 @@ class DisjointSet:
 
 
 def main() -> int:
-    junctions: list[Point] = [tuple(map(int, line.split(","))) for line in sys.stdin.readlines()]  # type: ignore
+    junctions: list[Point] = [
+        cast(Point, tuple(map(int, line.split(","))))
+        for line in sys.stdin.readlines()
+    ]
 
     part1_answer, part2_answer = parts(junctions)
     print("Part 1:", part1_answer)
@@ -51,16 +56,22 @@ def parts(junctions: list[Point]) -> tuple[int, int]:
     # NOTE: connections_to_make is input-dependent.
     connections_to_make = 1000 if len(junctions) == 1000 else 10
 
-    distances = [(distance(junctions[i], junctions[j]), i, j) for i in range(len(junctions)) for j in range(i + 1, len(junctions))]
-    distances.sort()
+    distances = [
+        (distance(junctions[j1], junctions[j2]), j1, j2)
+        for j1 in range(len(junctions))
+        for j2 in range(j1 + 1, len(junctions))
+    ]
+    heapq.heapify(distances)
 
     ds = DisjointSet(len(junctions))
     cnt_groups = len(junctions)
 
-    part1_answer = None
-    part2_answer = None
+    part1_answer: int | None = None
+    part2_answer: int | None = None
 
-    for i, (_, j1, j2) in enumerate(distances):
+    for i in range(len(distances)):
+        _, j1, j2 = heapq.heappop(distances)
+
         if i == connections_to_make:
             sizes = [0] * len(junctions)
             for j in range(len(junctions)):
@@ -87,11 +98,6 @@ def distance(p1: Point, p2: Point) -> int:
     dy = p2[Y] - p1[Y]
     dz = p2[Z] - p1[Z]
     return dx * dx + dy * dy + dz * dz
-
-
-# Only for testing purposes
-def part1(junctions: list[Point]) -> int: return parts(junctions)[0]
-def part2(junctions: list[Point]) -> int: return parts(junctions)[1]
 
 
 if __name__ == "__main__":

@@ -62,12 +62,9 @@ def part2(data: str):
 
 def evaluate(numbers: Iterable[int], operator: str) -> int:
     match operator:
-        case "+":
-            return sum(numbers)
-        case "*":
-            return prod(numbers)
-        case _:
-            raise ValueError(f"Unknown operator: {operator}")
+        case "+": return sum(numbers)
+        case "*": return prod(numbers)
+        case _: raise ValueError(f"Unknown operator: {operator}")
 
 
 if __name__ == "__main__":

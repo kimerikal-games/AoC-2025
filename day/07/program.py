@@ -10,8 +10,9 @@ Grid = Sequence[Sequence[int]]
 
 
 def main() -> int:
-    lines = sys.stdin.read().splitlines()[0::2]
-    grid = [list(map(int, line.replace(".", "0").replace("^", "1").replace("S", "9"))) for line in lines]
+    data = sys.stdin.read().replace(".", "0").replace("^", "1").replace("S", "9")
+    lines = data.splitlines()[0::2]
+    grid = [list(map(int, line)) for line in lines]
     rows = len(grid)
     cols = len(grid[0])
 
@@ -60,11 +61,6 @@ def parts(rows: int, cols: int, grid: Grid) -> tuple[int, int]:
     part2_answer = sum(table)
 
     return part1_answer, part2_answer
-
-
-# Only for testing purposes
-def part1(rows: int, cols: int, grid: Grid) -> int: return parts(rows, cols, grid)[0]
-def part2(rows: int, cols: int, grid: Grid) -> int: return parts(rows, cols, grid)[1]
 
 
 if __name__ == "__main__":

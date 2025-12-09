@@ -9,7 +9,8 @@ ADJACENTS = [(-1, -1), (-1, 0), (-1, 1), (0, -1), (0, 1), (1, -1), (1, 0), (1, 1
 
 
 def main() -> int:
-    grid = [[0 if c == "." else 1 for c in line.strip()] for line in sys.stdin]
+    data = sys.stdin.read().replace(".", "0").replace("@", "1")
+    grid = [list(map(int, line)) for line in data.splitlines()]
     rows = len(grid)
     cols = len(grid[0])
 
