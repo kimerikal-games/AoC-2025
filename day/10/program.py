@@ -4,11 +4,8 @@ Author: kimerikal <kimerikal.games@gmail.com>
 """
 
 import sys
-from typing import TypeVar
 
 from ortools.sat.python import cp_model
-
-T = TypeVar("T")
 
 State = list[int]
 Button = list[int]
