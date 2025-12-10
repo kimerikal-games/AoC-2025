@@ -34,7 +34,7 @@ My solutions for [Advent of Code 2025](https://adventofcode.com/2025).
             <td align="center"><a href="https://github.com/kimerikal-games/AoC-2025/blob/master/day/07/program.py">7</a></td>
             <td align="center"><a href="https://github.com/kimerikal-games/AoC-2025/blob/master/day/08/program.py">8</a></td>
             <td align="center"><a href="https://github.com/kimerikal-games/AoC-2025/blob/master/day/09/program.py">9</a></td>
-            <td align="center">10</td>
+            <td align="center"><a href="https://github.com/kimerikal-games/AoC-2025/blob/master/day/10/program.py">10</a></td>
             <td align="center">11</td>
             <td align="center">12</td>
             <td align="center">13</td>
@@ -79,17 +79,20 @@ My solutions for [Advent of Code 2025](https://adventofcode.com/2025).
 - Python 3.14: Python 3.14.0
 - PyPy 3.11: Python 3.11.13 (413c9b7f57f5, Jul 03 2025, 18:03:56) [PyPy 7.3.20 with GCC 10.2.1 20210130 (Red Hat 10.2.1-11)]
 
-|   Day |   Lines |   Words |   Bytes |   Python 3.14 Time [ms] |   Python 3.14 Memory [KB] |   PyPy 3.11 Time [ms] |   PyPy 3.11 Memory [KB] |
-|------:|--------:|--------:|--------:|------------------------:|--------------------------:|----------------------:|------------------------:|
-|     1 |      66 |     160 |    1525 |                      10 |                   22223.2 |                    30 |                 63025.6 |
-|     2 |      82 |     209 |    2042 |                     158 |                   22080   |                    54 |                 63171.2 |
-|     3 |      68 |     160 |    1417 |                      40 |                   22339.2 |                    34 |                 63381.6 |
-|     4 |      80 |     239 |    1979 |                     246 |                   22180   |                    88 |                 63915.2 |
-|     5 |      49 |     126 |    1105 |                      18 |                   22065.6 |                    44 |                 65269.6 |
-|     6 |      71 |     186 |    1570 |                      10 |                   22299.2 |                    44 |                 64486.4 |
-|     7 |      67 |     171 |    1641 |                      10 |                   22152   |                    26 |                 63263.2 |
-|     8 |     104 |     298 |    2487 |                     348 |                   94234.4 |                   234 |                126635   |
-|     9 |     110 |     401 |    2790 |                     264 |                   22226.4 |                   146 |                 68972   |
+|   Day |   Lines |   Words |   Bytes |   Python 3.14 Time [s] |   Python 3.14 Memory [KB] |   PyPy 3.11 Time [s] |   PyPy 3.11 Memory [KB] |
+|------:|--------:|--------:|--------:|-----------------------:|--------------------------:|---------------------:|------------------------:|
+|     1 |      66 |     160 |    1525 |                  0.014 |                   22331.2 |                0.034 |                 63128.0 |
+|     2 |      82 |     209 |    2042 |                  0.172 |                   22270.4 |                0.060 |                 63235.2 |
+|     3 |      68 |     160 |    1417 |                  0.050 |                   22105.6 |                0.040 |                 63468.8 |
+|     4 |      80 |     239 |    1979 |                  0.248 |                   22070.4 |                0.092 |                 64020.0 |
+|     5 |      49 |     126 |    1105 |                  0.020 |                   22064.0 |                0.050 |                 65470.4 |
+|     6 |      71 |     186 |    1570 |                  0.020 |                   22129.6 |                0.050 |                 64634.4 |
+|     7 |      67 |     171 |    1641 |                  0.010 |                   22169.6 |                0.030 |                 63392.0 |
+|     8 |     104 |     298 |    2487 |                  0.356 |                   94212.0 |                0.238 |                126708.0 |
+|     9 |     110 |     401 |    2790 |                  0.266 |                   22235.2 |                0.152 |                 69093.6 |
+|    10 |      99 |     263 |    2781 |                  0.608 |                   99817.6 |              -     |                   -   |
+
+*Note: Day 10 uses CPython 3.13 with Google OR-Tools due to complexity of the problem and OR-Tools compatibility issues with Python 3.14.*
 <!-- endregion measurements -->
 
 ## Structure

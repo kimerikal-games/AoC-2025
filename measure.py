@@ -63,7 +63,7 @@ def measure_interpreter_on_day(
     Returns (ok, avg_time_ms, avg_memory_kb).
     If ok is False, averages are None.
     """
-    times_ms: list[float] = []
+    times_s: list[float] = []
     memories_kb: list[float] = []
 
     # Use a single opened stdin file per interpreter/day
@@ -73,10 +73,12 @@ def measure_interpreter_on_day(
             pbar.set_description_str(f"Day {day:02d} {name:>8s} {i+1}/{repeats}")
             pbar.update()
 
+            if "cpython3.14" in cmd and day == 10:
+                cmd = ["uv", "run", "--with", "ortools", "--python", "cpython3.13"]
 
             stdin_f.seek(0)
             proc = subprocess.run(
-                ["time", "-f", "%S %U %M"] + cmd + [str(day_path / "program.py")],
+                ["/usr/bin/time", "-f", "%e %M"] + cmd + [str(day_path / "program.py")],
                 stdin=stdin_f,
                 capture_output=True,
                 text=True,
@@ -87,27 +89,21 @@ def measure_interpreter_on_day(
                 return False, None, None
 
             parts = proc.stderr.split()
-            if len(parts) < 3:
+            if len(parts) < 2:
                 print(f"Day {day:02d} {name} produced unexpected time output")
                 return False, None, None
 
-            sys_t = float(parts[0])
-            usr_t = float(parts[1])
-            mem_kb = float(parts[2])
+            real_s = float(parts[0])
+            mem_kb = float(parts[1])
 
-            runtime_ms = 1000 * (sys_t + usr_t)
+            runtime_s = real_s
 
-            # Stop if a run takes more than 10 seconds
-            if runtime_ms > 10_000:
-                print(f"Day {day:02d} {name} exceeded 10 seconds")
-                return False, None, None
-
-            times_ms.append(runtime_ms)
+            times_s.append(runtime_s)
             memories_kb.append(mem_kb)
 
-    avg_time_ms = statistics.fmean(times_ms)
+    avg_time_s = statistics.fmean(times_s)
     avg_memory_kb = statistics.fmean(memories_kb)
-    return True, avg_time_ms, avg_memory_kb
+    return True, avg_time_s, avg_memory_kb
 
 
 def measure_day(
@@ -146,7 +142,7 @@ def measure_day(
 
     # Measure for each interpreter
     for name, cmd in interpreters_list:
-        ok, avg_time_ms, avg_mem_kb = measure_interpreter_on_day(
+        ok, avg_time_s, avg_mem_kb = measure_interpreter_on_day(
             day=day,
             day_path=day_path,
             name=name,
@@ -154,10 +150,8 @@ def measure_day(
             repeats=repeats,
             pbar=pbar,
         )
-        if not ok:
-            return None
 
-        result[f"{name} Time [ms]"] = avg_time_ms
+        result[f"{name} Time [s]"] = avg_time_s
         result[f"{name} Memory [KB]"] = avg_mem_kb
 
     return result
@@ -207,7 +201,10 @@ def update_readme_with_measurements(
     start_index = readme.index(start_marker)
     end_index = readme.index(end_marker)
 
-    new_readme = readme[: start_index + len(start_marker)] + "\n" + markdown_block + "\n" + readme[end_index:]
+    # Note on day 10
+    note_day_10 = "\n*Note: Day 10 uses CPython 3.13 with Google OR-Tools due to complexity of the problem and OR-Tools compatibility issues with Python 3.14.*\n"
+
+    new_readme = readme[: start_index + len(start_marker)] + "\n" + markdown_block + "\n" + note_day_10 + readme[end_index:]
 
     readme_path.write_text(new_readme)
 
@@ -233,7 +230,19 @@ def main() -> None:
 
     # 4. Build markdown
     md = get_interpreter_markdown(interpreters)
-    md += df.to_markdown()
+
+    def get_floatfmt(col: str) -> str:
+        if "Time" in col:
+            return ".03f"
+        elif "Memory" in col:
+            return ".01f"
+        else:
+            return ".0f"
+
+    floatfmt = [".0f"] + [get_floatfmt(col) for col in df.columns]
+    md_table = df.to_markdown(floatfmt=floatfmt)
+    md_table = md_table.replace("nan", "-")
+    md += md_table
 
     # 5. Update README
     readme_path = root / "README.md"
