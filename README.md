@@ -35,7 +35,7 @@ My solutions for [Advent of Code 2025](https://adventofcode.com/2025).
             <td align="center"><a href="https://github.com/kimerikal-games/AoC-2025/blob/master/day/08/program.py">8</a></td>
             <td align="center"><a href="https://github.com/kimerikal-games/AoC-2025/blob/master/day/09/program.py">9</a></td>
             <td align="center"><a href="https://github.com/kimerikal-games/AoC-2025/blob/master/day/10/program.py">10</a></td>
-            <td align="center">11</td>
+            <td align="center"><a href="https://github.com/kimerikal-games/AoC-2025/blob/master/day/11/program.py">11</a></td>
             <td align="center">12</td>
             <td align="center">13</td>
         </tr>
@@ -81,16 +81,17 @@ My solutions for [Advent of Code 2025](https://adventofcode.com/2025).
 
 |   Day |   Lines |   Words |   Bytes |   Python 3.14 Time [s] |   Python 3.14 Memory [KB] |   PyPy 3.11 Time [s] |   PyPy 3.11 Memory [KB] |
 |------:|--------:|--------:|--------:|-----------------------:|--------------------------:|---------------------:|------------------------:|
-|     1 |      66 |     160 |    1525 |                  0.016 |                   22092.8 |                0.032 |                 63068.0 |
-|     2 |      82 |     209 |    2042 |                  0.168 |                   21989.6 |                0.060 |                 63302.4 |
-|     3 |      68 |     160 |    1417 |                  0.050 |                   22144.0 |                0.040 |                 63488.8 |
-|     4 |      80 |     239 |    1979 |                  0.246 |                   21984.8 |                0.094 |                 63947.2 |
-|     5 |      49 |     126 |    1105 |                  0.022 |                   22044.8 |                0.050 |                 65518.4 |
-|     6 |      71 |     186 |    1570 |                  0.020 |                   22004.0 |                0.050 |                 64686.4 |
-|     7 |      67 |     171 |    1641 |                  0.018 |                   22166.4 |                0.030 |                 63415.2 |
-|     8 |     104 |     298 |    2487 |                  0.372 |                   94239.2 |                0.244 |                126741.6 |
-|     9 |     110 |     401 |    2790 |                  0.260 |                   22005.6 |                0.152 |                 69067.2 |
-|    10 |      96 |     256 |    2736 |                  0.642 |                   99781.6 |              -     |                   -   |
+|     1 |      66 |     160 |    1525 |                  0.010 |                   22064.0 |                0.030 |                 62916.8 |
+|     2 |      82 |     209 |    2042 |                  0.158 |                   22073.6 |                0.058 |                 63166.4 |
+|     3 |      68 |     160 |    1417 |                  0.050 |                   22095.2 |                0.040 |                 63364.0 |
+|     4 |      80 |     239 |    1979 |                  0.228 |                   22111.2 |                0.090 |                 63922.4 |
+|     5 |      49 |     126 |    1105 |                  0.020 |                   22308.0 |                0.050 |                 65301.6 |
+|     6 |      71 |     186 |    1570 |                  0.016 |                   22088.8 |                0.050 |                 64450.4 |
+|     7 |      67 |     171 |    1641 |                  0.010 |                   22031.2 |                0.030 |                 63264.0 |
+|     8 |     104 |     298 |    2487 |                  0.342 |                   94059.2 |                0.230 |                126520.8 |
+|     9 |     110 |     401 |    2790 |                  0.260 |                   22048.8 |                0.140 |                 68932.8 |
+|    10 |      96 |     256 |    2736 |                  0.600 |                   98367.2 |              -     |                   -   |
+|    11 |      72 |     183 |    1585 |                  0.010 |                   22238.4 |                0.030 |                 63059.2 |
 
 *Note: Day 10 uses CPython 3.13 with Google OR-Tools due to complexity of the problem and OR-Tools compatibility issues with Python 3.14.*
 <!-- endregion measurements -->
